@@ -1,0 +1,52 @@
+{% extends "templates/public_template.html" %}
+
+{% block title %}Upload Video{% endblock %}
+
+{% block main %}
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Upload a Video</h1>
+      <hr>
+
+      <form action="/upload-image" method="POST" enctype="multipart/form-data">
+
+        <div class="form-group">
+          <label>Select video</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="image" id="image"> <!--name= "image"-->
+            <label class="custom-file-label" for="image">Select video...</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" >Upload</button>
+        <button onClick="location.href='run_inference'" type="button" class="btn btn-primary" id='retrieve'>Run inference </button>
+
+      </form>
+      <!-- <iframe width = "300" height="300" src="" id='myvid'> -->
+      <video width="320" height="240">
+        <source src= "/static/resultvid/kicking.avi" type="video/avi"></source>
+      </video>
+    </div>
+  </div>
+</div>
+<!-- <script>
+  $(document).ready(function() {
+     $('#retrieve').click(function(){
+         $.ajax({
+         url: "{{ url_for ('static', filename= 'resultvid/kicking.avi' ) }}",
+         type: "GET",
+         success: function(response) {
+             $("#myvid").attr('src', '/static/' + response);
+        },
+        error: function(xhr) {
+          //Do Something to handle error
+          console.log('error')
+       }
+       });
+     });
+  });
+</script> -->
+{% endblock %}
