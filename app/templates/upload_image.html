@@ -25,12 +25,16 @@
         <button onClick="location.href='run_inference'" type="button" class="btn btn-primary" id='retrieve'>Run inference </button>
 
       </form>
+
       <!-- <iframe width = "300" height="300" src="" id='myvid'> -->
-      <video width="320" height="240">
+
+      <!-- <video width="320" height="240">
         <source src= "/static/resultvid/kicking.avi" type="video/avi"></source>
-      </video>
+      </video> -->
     </div>
   </div>
+  <h2>Inference results</h2>
+  <h5> {{top1_res}} </h5>
 </div>
 <!-- <script>
   $(document).ready(function() {

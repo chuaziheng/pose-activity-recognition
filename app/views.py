@@ -8,6 +8,7 @@ import json
 import subprocess
 import numpy as np
 from data_gen.preprocess import pre_normalization
+import pickle
 
 @app.route("/")
 def index():
@@ -77,7 +78,10 @@ def run_inference():
         command = './dgnn/main.py'
         print(os.getcwd())
         subprocess.call(['python.exe', command ,"--config", "./dgnn/config/nturgbd-cross-view/test_spatial.yaml"], shell=True)
-    return render_template('upload_image.html')
+
+        top1_res = get_results()
+
+    return render_template('upload_image.html', top1_res=top1_res)
 
 def extract_skeletons(upload_type,filename ):  # must normalize x,y to [-1,1] first (referencing DGNN repo)
     if upload_type in ['jpg', 'png']:
@@ -163,10 +167,26 @@ def gen_numpy():
         os.makedirs(OUT_PATH)  # create new  dir
     np.save(f'{OUT_PATH}/test_data_joint.npy' , fp)
     return True
-    # pred_np = np.load(f'{OUT_PATH}/test_data_joint.npy')  # to test if np save successful
-    # print(f'prednp {pred_np}'   )
-    # print(pred_np.shape)
 
 
-    #TODO: gen bone + label
-    #TODO: try isolate and run inference model (CPU)
+def get_results():
+
+    INDEX_2_CLASS = {
+	49: "Use a fan",
+	50: "Punching/ Slapping another person",
+	51: "Kicking another person",
+	52: "Pushing another person",
+	53: "Pat on back of another person",
+	54: "Point finger at another person"
+    }
+
+    with open('results.pkl', 'rb') as f:
+        rank = pickle.load(f)  # np darray [[...]]
+
+    top1 = rank.squeeze()[-1]
+    top5 = rank.squeeze()[-5:]
+
+    return INDEX_2_CLASS[top1]
+
+
+
