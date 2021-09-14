@@ -14,6 +14,15 @@ For dev purposes, I'll only be using OpenPose's demo executable (included in thi
 ```
 git clone https://github.com/kenziyuliu/DGNN-PyTorch.git
 ```
+
+# Run
+At root folder:
+```
+$env:FLASK_ENV = "development"
+$env:FLASK_APP = "run.py"
+flask run
+
+```
 ## Citations
 
 * Pose Estimation framework: OpenPose https://github.com/CMU-Perceptual-Computing-Lab/openpose
