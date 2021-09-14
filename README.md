@@ -1,6 +1,6 @@
 ## URECA Project - 2D Pose Activity Recognition
 
-This is my first attempt to "productionize" ML models, by deploying them to the browser for inferencing. I would admit that this project's design is really hacky, everything is barely put together.
+This is my first attempt to "productionize" ML models, by deploying them to the browser for inferencing. I would admit that this project's design is really hacky, everything is barely coming together.
 
 Interesting stuff to take a look:
 1. ``` app/views.py``` Flask app logic + calling openpose and dgnn library
