@@ -1,6 +1,0 @@
-[ Mon Jun 28 11:12:00 2021 ] Load weights from ./dgnn/weights/-1-1176.pt.
-[ Mon Jun 28 11:18:00 2021 ] Load weights from ./dgnn/weights/-1-1176.pt.
-[ Mon Jun 28 11:20:52 2021 ] Load weights from ./dgnn/weights/-1-1176.pt.
-[ Mon Jun 28 11:25:37 2021 ] Load weights from ./dgnn/weights/-1-1176.pt.
-[ Mon Jun 28 11:46:51 2021 ] Load weights from ./dgnn/weights/-1-1176.pt.
-[ Mon Jun 28 12:00:27 2021 ] Load weights from ./dgnn/weights/-1-1176.pt.
